@@ -1,10 +1,8 @@
 from django.db import models
 
-
 class Contract(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField('date published')
-
 
 class Rate(models.Model):
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)

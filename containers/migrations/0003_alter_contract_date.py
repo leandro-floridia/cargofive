@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='contract',
+            model_name='containers',
             name='date',
             field=models.DateField(verbose_name='date published'),
         ),

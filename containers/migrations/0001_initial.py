@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('twenty', models.IntegerField(max_length=10)),
                 ('forty', models.IntegerField(max_length=10)),
                 ('fortyhc', models.IntegerField(max_length=10)),
-                ('contract', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='containers.contract')),
+                ('containers', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='containers.containers')),
             ],
         ),
     ]

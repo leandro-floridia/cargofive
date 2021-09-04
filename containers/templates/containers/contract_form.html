@@ -1,0 +1,24 @@
+{% extends "containers/base.html" %}
+
+{% block content %}
+
+    <form role="form">
+				<div class="form-group">
+
+					<label for="exampleInputEmail1">
+						Name
+					</label>
+					{{ form.name }}
+				</div>
+				<div class="form-group">
+
+					<label for="exampleInputPassword1">
+						Date
+					</label>
+					{{ form.date }}
+				</div>
+
+        <input type="submit" class="btn btn-primary" value="Save">
+
+			</form>
+{% endblock %}

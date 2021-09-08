@@ -19,6 +19,7 @@ from django.urls import path, include
 from containers.views import index
 
 urlpatterns = [
+    
     path('', index, name='index'),
     path('contract/', include('containers.urls')),
     path('admin/', admin.site.urls),

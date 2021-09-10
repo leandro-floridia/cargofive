@@ -20,3 +20,18 @@ class Rate(models.Model):
 
     def get_absolute_url(self):
         return reverse('contract_edit', kwargs={'pk': self.pk})
+
+    
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+
+   #Calling model field instance - What im doing wrong here?
+            obj.attachment = book.save("sample.xlsx")
+
+            #Saving model instance
+            obj.save()
+
+            #Some return - required for AJAX
+            return JsonResponse({"status": "OK"})

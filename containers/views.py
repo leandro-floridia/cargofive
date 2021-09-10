@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.core.files.base import ContentFile
+from openpyxl import load_workbook
+
+
 
 from django.shortcuts import render
 import openpyxl
@@ -35,6 +41,17 @@ def index(request):
         return render(request, 'index.html', {"excel_data":excel_data})
 
 
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = ModelFormWithFileField(request.POST, request.FILES)
+        if form.is_valid():
+            # file is saved
+            workbook.save()
+            return HttpResponseRedirect('/success/url/')
+    else:
+        form = ModelFormWithFileField()
+    return render(request, 'upload.html', {'form': form})
 
 from .models import Contract
 
